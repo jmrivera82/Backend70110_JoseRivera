@@ -20,3 +20,11 @@ import {temprano, tarde,noche} from "./saludos.js"
 temprano()
 tarde()
 noche()
+
+//modulos nativos
+
+//fs, http, path, crypto, timers, console
+
+//modulos de terceros  ***express
+
+
