@@ -16,9 +16,9 @@ app.use (express.json())
 
 const clientes = [
     {id:"1", nombre:"pepe", apellido: "argento"},
-    {id:"2", nombre:"pato", apellido: "argento"},
-    {id:"3", nombre:"papa", apellido: "argento"},
-    {id:"4", nombre:"pepa", apellido: "argento"}
+    {id:"2", nombre:"pato", apellido: "argen"},
+    {id:"3", nombre:"papa", apellido: "arge"},
+    {id:"4", nombre:"pepa", apellido: "arg"}
 ]
 
 //metodo GEt
