@@ -32,7 +32,7 @@ app.get("/clientes", (req,res)=>{
 app.post("/clientes", (req, res) => {
     const clienteNuevo = req.body
 
-    cliebtes.push(clienteNuevo)
+    clientes.push(clienteNuevo)
 
     console.log(clientes)
 
