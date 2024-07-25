@@ -1,10 +1,8 @@
-/*import { Router } from "express"
-const router = Router ()
-const products = []*/
+import { Router } from "express"
+import ProductManager from '../productManager.js'
 
-const express = require('express')
-const router = express.Router()
-const ProductManager = require('../product-manager.js')
+
+const router = Router ()
 const productManager = new ProductManager()
 
 //Listar productos
@@ -13,13 +11,14 @@ router.get("/", (req,res)=>{
 
     const limit = parseInt(req.query.limit)
     const products = productManager.getAllProducts(limit)
-    res.json(products)})
+    res.json(products)
+  })
 
 
 // Ver producto por id
 
-router.get('/:id', (req, res) => {
-    const product = productManager.getProductById(req.params.id)
+router.get('/:pid', (req, res) => {
+    const product = productManager.getProductById(req.params.pid)
     if (product) {
       res.json(product)
     } else {
@@ -37,8 +36,8 @@ router.post('/', (req, res) => {
 
 //Actualizar producto por id
 
-router.put('/:id', (req, res) => {
-    const updatedProduct = productManager.updateProduct(req.params.id, req.body)
+router.put('/:pid', (req, res) => {
+    const updatedProduct = productManager.updateProduct(req.params.pid, req.body)
     if (updatedProduct) {
       res.json(updatedProduct)
     } else {
@@ -48,8 +47,8 @@ router.put('/:id', (req, res) => {
 
 //Eliminar producto por ID
 
-router.delete('/:id', (req, res) => {
-    const deletedProduct = productManager.deleteProduct(req.params.id)
+router.delete('/:pid', (req, res) => {
+    const deletedProduct = productManager.deleteProduct(req.params.pid)
     if (deletedProduct) {
       res.json(deletedProduct)
     } else {
@@ -57,5 +56,4 @@ router.delete('/:id', (req, res) => {
     }
   })
   
-module.exports = router
-  
+export default router
