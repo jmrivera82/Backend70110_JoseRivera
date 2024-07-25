@@ -56,4 +56,27 @@ router.delete('/:pid', (req, res) => {
     }
   })
   
+  router.post('/', (req, res) => {
+    const { title, description, code, price, status, stock, category, thumbnails } = req.body;
+    if (!title || !description || !code || !price || status === undefined || !stock || !category || !thumbnails) {
+      return res.status(400).send('Faltan campos requeridos')
+    }
+  
+    const newProduct = {
+      title,
+      description,
+      code,
+      price,
+      status: status ?? true,
+      stock,
+      category,
+      thumbnails: thumbnails || []
+    }
+  
+    const addedProduct = productManager.addProduct(newProduct)
+    res.status(201).json(addedProduct)
+  })
+  
+
+
 export default router
